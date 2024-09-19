@@ -214,4 +214,54 @@ h2 {
     padding-left: 20px;
 }
 
+/* Toevoegen van media queries voor responsiviteit */
+@media only screen and (max-width: 1024px) {
+    #hidden-section {
+        width: 70%;
+        margin-left: 50px;
+        height: auto;
+    }
+    .info-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .skills-list, .hobby-list {
+        margin-left: 0;
+        letter-spacing: .05em;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #hidden-section {
+        width: 90%;
+        margin-left: 20px;
+    }
+    .info-container img {
+        width: 80px;
+        height: 120px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .container {
+        height: auto;
+        padding: 20px;
+    }
+    button {
+        padding: 10px 30px;
+        font-size: 18px;
+    }
+    #hidden-section {
+        width: 100%;
+        margin-left: 0;
+        padding: 15px;
+    }
+    .classified {
+        font-size: 50px;
+    }
+    .skills-list, .hobby-list {
+        letter-spacing: .03em;
+    }
+}
+
 </style>
