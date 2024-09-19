@@ -44,7 +44,7 @@
     <div id="more-info" class="hidden">
         <article class="info-container">
             <a href="https://github.com/RubenErhardt">
-                <img src="/Squad2C-Ruben.JPG" alt="Mugshot of Ruben Erhardt" width="100" height="150">
+                <img src="/Squad2C-Ruben.JPG" alt="Mugshot of Ruben Erhardt" width="100" height="150" loading="lazy">
             </a>
             <section class="skills-list">
                 <h3>My skills are:</h3>
