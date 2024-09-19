@@ -1,33 +1,19 @@
 <script>
     import { onMount } from 'svelte';
-    let audioElement;
-    let hiddenSection;
-    let moreInfo;
-    let revealButton;
+    let audioElement, hiddenSection, moreInfo, revealButton;
 
-    // Functie om audio af te spelen en het verborgen gedeelte te tonen
     function playAudio() {
-        if (audioElement) {
-            audioElement.play(); // Speelt de audio af
-        }
+        audioElement?.play();
         if (hiddenSection) {
-            hiddenSection.style.display = 'block'; // laat het verborgen gedeelte zien
-            hiddenSection.style.opacity = 1; // Zorgt ervoor dat het verborgen gedeelte te zien is
-            hiddenSection.scrollIntoView({ behavior: 'smooth', block: 'center' }); // Scrolt naar het verborgen gedeelte met animatie
-            document.body.style.overflow = 'hidden'; // Verbergt scrollbar
-            // ik weet ik moet iets anders gaan vinden voor .style 
+            hiddenSection.classList.remove('hidden');
+            hiddenSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
     }
 
-    // Functie om de extra informatie te tonen of te verbergen
     function toggleMoreInfo() {
         if (moreInfo) {
-            moreInfo.classList.toggle('hidden'); // Wisselt de zichtbaarheid van de extra informatie
-            if (moreInfo.classList.contains('hidden')) {
-                revealButton.textContent = 'Click to reveal more'; // Wijzigt de tekst als de extra informatie verborgen is
-            } else {
-                revealButton.textContent = 'Click to hide'; // Wijzigt de tekst als de extra informatie zichtbaar is
-            }
+            moreInfo.classList.toggle('hidden');
+            revealButton.textContent = moreInfo.classList.contains('hidden') ? 'Click to reveal more' : 'Click to hide';
         }
     }
 
@@ -117,8 +103,12 @@ h2 {
     text-align: center;
 }
 
-#hidden-section {
+.hidden {
     display: none;
+}
+
+
+#hidden-section {
     max-width: 500px;
     width: 30%;
     height: 500px;
@@ -132,6 +122,7 @@ h2 {
     background-color: rgba(53, 50, 50, 0.4);
 }
 
+
 #hidden-section h2 {
     color: #000000;
     background-color: white;
@@ -141,9 +132,7 @@ h2 {
     white-space: nowrap;
     margin: 0 auto;
     letter-spacing: .15em;
-    animation: 
-        typing 3.5s steps(30, end),
-        blink-caret .5s step-end infinite;
+    animation: typing 3.5s steps(30, end), blink-caret .5s step-end infinite;
 }
 
 @keyframes typing {
@@ -160,14 +149,6 @@ h2 {
     font-size: 80px;
     color: rgba(239, 8, 8, 0.5);
     transform: rotate(-15deg) translateX(10px) translateY(10px);
-}
-
-.hidden {
-    display: none;
-}
-
-.hidden button {
-    font-size: 15px;
 }
 
 #more-info {
@@ -198,15 +179,12 @@ h2 {
     margin-left: 40px;
     overflow: hidden;
     border-right: .15em solid orange;
-    margin: 0 auto;
     letter-spacing: .10em;
-    animation: 
-        typing 3.5s steps(30, end),
-        blink-caret .5s step-end infinite;
+    animation: typing 3.5s steps(30, end), blink-caret .5s step-end infinite;
 }
 
 .skills-list h3, .hobby-list h3 {
-    margin: 0 0 10px 0;
+    margin-bottom: 10px;
 }
 
 .skills-list ol, .hobby-list ol {
@@ -214,7 +192,6 @@ h2 {
     padding-left: 20px;
 }
 
-/* Toevoegen van media queries voor responsiviteit */
 @media only screen and (max-width: 1024px) {
     #hidden-section {
         width: 70%;
@@ -256,6 +233,11 @@ h2 {
         margin-left: 0;
         padding: 15px;
     }
+
+    #hidden-section h2 {
+        font-size: 14px;
+    }
+
     .classified {
         font-size: 50px;
     }
@@ -263,5 +245,4 @@ h2 {
         letter-spacing: .03em;
     }
 }
-
 </style>
