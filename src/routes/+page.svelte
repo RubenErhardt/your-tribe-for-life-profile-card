@@ -32,7 +32,7 @@
 </main>
 
 <audio id="background-music" loop>
-    <source src="/[1080p HD] Call of Duty Black Ops Multiplayer Menu Music (mp3cut.net).mp3" type="audio/mpeg">
+    <source src="/Call of Duty Black Ops Multiplayer Menu Music (mp3cut.net).mp3" type="audio/mpeg">
 </audio>
 
 <section id="hidden-section" class="hidden">
